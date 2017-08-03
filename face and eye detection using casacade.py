@@ -5,7 +5,7 @@ Created on Thu Jul 13 16:04:15 2017
 @author: me
 """
 
-
+# Importing the packages
 import numpy as np
 import cv2
 # define the `casacade for face and eyes 
@@ -20,10 +20,10 @@ while 1:
     for (x,y,w,h) in faces:
 # starting point of the rectangle is (x,y) and ending point is (w,h) in the case of face
         cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
-#we are making it a blue rectangle so it will be 255.0.0
+#I am looking in  making  a blue rectangle so it will be 255.0.0
         roi_gray = img[y:y+h, x:x+w]
         roi_color = img[y:y+h, x:x+w]
- #now we will do the detection in the case of eyes similarly as I have done for        
+ #now we will do the detection in the case of eyes similarly as I have done for face       
         eyes = eye_cascade.detectMultiScale(roi_gray)
         for (ex,ey,ew,eh) in eyes:
             cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
